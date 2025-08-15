@@ -13,20 +13,14 @@ Un assistant d'installation moderne en C# WinForms pour automatiser le déploiem
 - **Gestion PM2** pour les processus Node.js
 - **Tâches planifiées Windows** automatiques
 - **Interface vidéo finale** avec WebView2 et serveur HTTP local
-- **Installation non-intrusive** de Nmap avec gestion Npcap
+- **Installation non-intrusive** de Nmap
 
 ## 🛠️ Prérequis
 
 - Windows 10 ou plus récent
 - .NET 8.0 Windows Desktop Runtime
-- Droits administrateur (pour l'installation des dépendances)
-- Connexion Internet
+- Visual Studio 2022
 
-## 📦 Installation rapide
-
-1. **Téléchargez** la dernière version depuis les [Releases](../../releases)
-2. **Lancez** `setup-wizard.exe` en tant qu'administrateur
-3. **Suivez** l'assistant d'installation étape par étape
 
 ## 🔧 Développement
 
@@ -46,7 +40,6 @@ setup-wizard/
 │   ├── DependencyChecker.cs  # Vérification dépendances
 │   └── DependencyInstaller.cs # Installation dépendances
 ├── github_config.json        # Configuration GitHub (chiffrée)
-└── tonytonychopper.mp4       # Vidéo finale
 ```
 
 ### Compilation
@@ -54,7 +47,7 @@ setup-wizard/
 ```bash
 # Dans Visual Studio 2022
 1. Ouvrir setup-wizard.sln
-2. Build > Publish > FolderProfile
+2. Build > Publish 
 3. L'exécutable sera dans publish/
 ```
 
@@ -62,18 +55,18 @@ setup-wizard/
 
 ### ⚠️ Important - Sécurité
 
-Le fichier `github_config.json` inclus contient des **credentials chiffrés pour un projet spécifique**. Ces données ne sont **pas accessibles** sans la clé de déchiffrement.
+Le fichier `github_config.json` n'est pas inclus et contient des **credentials chiffrés pour un projet spécifique**.
 
 ### 🔄 Réutilisation du code
 
-#### Option 1 : Usage éducatif
+#### Usage éducatif
 Le code peut être utilisé à des fins éducatives pour comprendre :
 - L'architecture d'un setup wizard WinForms
 - L'intégration WebView2 pour la vidéo
 - La gestion des dépendances Windows
 - Le chiffrement de credentials
 
-#### Option 2 : Adaptation pour votre projet
+####  Adaptation pour votre projet
 
 1. **Changez l'URL du repository** dans `GitClonePanel.cs` :
 ```csharp
@@ -82,46 +75,47 @@ string authUrl = $"https://{HttpUtility.UrlEncode(credentials.Username)}:{HttpUt
 ```
 
 2. **Créez votre github_config.json** :
-```bash
-# Utilisez EncryptCredentials.exe pour générer votre config
-EncryptCredentials.exe "votre-username" "votre-token" "github_config.json"
+
+
+
+- **Utilisation sécurisée (chiffré)** :
+Utilisez la classe `EncryptCredentials` du projet pour générer un fichier chiffré.
+
+**⚠️ Note** : Sans ce fichier, l'assistant utilisera les credentials par défaut (qui ne fonctionneront pas pour votre repository).
+
+```json
+{
+  "GitHub": {
+    "Username": "votre-username-github",
+    "Token": "ghp_votre_token_github_ici"
+  }
+}
 ```
 
-3. **Remplacez la vidéo** :
-   - Remplacez `tonytonychopper.mp4` par votre vidéo
-   - Format recommandé : MP4, 16:9, maximum 10MB
-
-## 🎬 Interface vidéo
-
-L'assistant se termine par une **vidéo intégrée** avec :
-- Lecture automatique en boucle
-- Volume à 50% par défaut
-- Bouton mute/unmute
-- Border radius stylé avec ombre
-- Serveur HTTP local pour contourner les restrictions de sécurité
-
-### Technologies utilisées
-- **WebView2** pour l'affichage HTML5
-- **HttpListener** pour servir la vidéo localement
-- **CSS moderne** pour le styling
 
 ## 📋 Dépendances installées
-
-L'ordre d'installation est optimisé :
 
 1. **Node.js** - Runtime JavaScript (.msi)
 2. **Git** - Contrôle de version (.exe)  
 3. **Android SDK Tools** - ADB pour Android (.zip)
 4. **scrcpy** - Contrôle d'écran Android (.zip)
-5. **Nmap** - Scanner réseau (installation manuelle avec Npcap)
+5. **Nmap** - Scanner réseau
 
-## 🏗️ Architecture technique
+## 🏗️ Architecture
 
+### Technologies principales
 - **Framework** : .NET 8.0 Windows Forms
-- **Vidéo** : WebView2 + HttpListener
+- **Interface vidéo** : WebView2 + HttpListener intégré
 - **Sécurité** : Chiffrement AES-256 des credentials
 - **Installation** : Support MSI/EXE/ZIP avec extraction automatique
-- **Async/Await** : Interface responsive non-bloquante
+- **UI** : Interface async/await non-bloquante
+
+### Fonctionnalités avancées
+- 🔧 **Gestion automatique des dépendances** avec ordre optimisé
+- 🔐 **Authentification GitHub sécurisée** (chiffrée ou plain text)
+- ⚙️ **Tâches planifiées Windows** pour PM2
+- 🎬 **Lecteur vidéo intégré** avec serveur HTTP local
+- 📦 **Installation silencieuse** pour la plupart des outils
 
 ## 📜 Licence
 
@@ -144,13 +138,15 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 - Proposer des améliorations
 - Ajouter de nouvelles fonctionnalités
 
-## 📞 Support
+## 📚 Ressources utiles
 
-Pour toute question technique ou d'utilisation, créez une [Issue](../../issues) avec :
-- Description du problème
-- Version de Windows
-- Logs d'erreur si applicable
+**Documentation technique :**
+- [WebView2 Documentation](https://docs.microsoft.com/en-us/microsoft-edge/webview2/)
+- [.NET 8.0 Windows Forms](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/)
+- [GitHub Personal Access Tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
----
-
-**Fait avec ❤️ pour automatiser le déploiement de projets**
+**Dépendances installées :**
+- [Node.js](https://nodejs.org/) - Runtime JavaScript
+- [PM2](https://pm2.keymetrics.io/) - Process manager
+- [Android SDK Platform Tools](https://developer.android.com/studio/releases/platform-tools) - ADB et outils
+- [scrcpy](https://github.com/Genymobile/scrcpy) - Contrôle d'écran Android
