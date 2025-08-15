@@ -1,0 +1,75 @@
+MIT License with Educational and Security Provisions
+
+Copyright (c) 2024 Tablette System V2 Setup Wizard
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+ADDITIONAL TERMS AND CONDITIONS:
+
+1. EDUCATIONAL USE: This software is primarily intended for educational purposes,
+   learning software architecture, and understanding Windows Forms development
+   with modern technologies like WebView2.
+
+2. CREDENTIAL SECURITY: The included github_config.json file contains encrypted
+   credentials specific to the original project. These credentials are:
+   - NOT accessible without the proper decryption key
+   - NOT intended for use with the original private repositories
+   - PROVIDED as an example of secure credential storage
+
+3. ADAPTATION RIGHTS: Users are encouraged to:
+   - Modify the GitHub repository URL for their own projects
+   - Create their own github_config.json with their credentials
+   - Replace the included video file with their own content
+   - Adapt the dependency list to their project needs
+
+4. REPOSITORY ACCESS: This software does NOT grant access to:
+   - The original private GitHub repositories
+   - The encrypted credentials included in the configuration
+   - Any proprietary content or data from the original project
+
+5. COMMERCIAL USE: Commercial use is permitted provided that:
+   - Users implement their own authentication system
+   - No attempt is made to access the original project's resources
+   - Proper attribution is maintained
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+THIRD-PARTY COMPONENTS:
+
+This software includes and installs various third-party components:
+- Node.js (MIT License)
+- Git (GPL v2 License)
+- Android SDK Tools (Android Software Development Kit License)
+- scrcpy (Apache License 2.0)
+- Nmap (GPL License with exceptions)
+- Microsoft WebView2 (Microsoft Software License)
+
+Users are responsible for complying with the respective licenses of these
+third-party components.
+
+SECURITY NOTICE:
+
+The encryption used in this software (AES-256) is implemented for demonstration
+purposes. For production use, consider implementing more robust security measures
+including:
+- Hardware security modules
+- Key management systems
+- Certificate-based authentication
+- Multi-factor authentication
+
+For questions about this license or usage permissions, please create an issue
+in the project repository.

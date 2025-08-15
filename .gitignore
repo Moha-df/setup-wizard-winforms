@@ -1,0 +1,28 @@
+# Build Outputs
+bin/
+obj/
+publish/
+*.exe
+*.dll
+*.pdb
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.tmp
+
+# NuGet
+packages/
+*.nupkg
+
+# Debug
+*.log
+Thumbs.db
+
+# Large video files (optional - remove if you want to include the video)
+# *.mp4
+
+# Sensitive files (already encrypted but good practice)
+# github_config.json
